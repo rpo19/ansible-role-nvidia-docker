@@ -1,5 +1,7 @@
 nvidia_container_runtime_package_version: ''
 
+nvidia_docker_daemon_json: true
+
 docker_daemon_json:
   # Set default runtime (required for kubernetes)
   runtimes:

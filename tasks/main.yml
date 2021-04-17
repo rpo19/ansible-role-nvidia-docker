@@ -16,7 +16,7 @@
 
 - name: re-gather facts
   setup: filter=ansible_local
-          
+
 - name: check distro
   fail:
     msg: "distro {{ ansible_facts['distribution'] }} not supported"
@@ -43,7 +43,8 @@
     owner: root
     group: root
     mode: 0644
-  notify: restart docker
+  notify: reload docker
+  when: nvidia_docker_daemon_json | bool
 
 # We could use the "nvidia-docker2" package to install this wrapper for us.
 # Instead, we grab the wrapper directly to avoid packaging issues stemming from
